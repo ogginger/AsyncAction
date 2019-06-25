@@ -22,10 +22,10 @@ define([
       log("test_AsyncAction initialized successfully!");
       var xTestSuite = this;
       xTestSuite.set( "MethodUnderTest", "AsyncAction" );
-  	//xTestSuite.add( AsyncAction_SimpleAsync_ResolvesResult );
-	//xTestSuite.add( AsyncAction_RejectingAsync_ResolvesError );
+  	xTestSuite.add( AsyncAction_SimpleAsync_ResolvesResult );
+	xTestSuite.add( AsyncAction_RejectingAsync_ResolvesError );
 	xTestSuite.add( AsyncAction_UnknownError_RejectsUnknownError );
-      //xTestSuite.test();
+      xTestSuite.test();
     }
   });
 });

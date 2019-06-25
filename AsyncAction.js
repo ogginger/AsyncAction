@@ -2,24 +2,21 @@
 
 define([
 	"log",
-	"underscore",
 	"promise"
 ], function(
 	log,
-	_,
 	promise
 ) {
   return function( Input ) {
 	return promise(function( resolve, reject ) {
 		Input.Function( Input.Input ).then(function( Result ) {
 			Input.Result = Result;
-			log( "Resolved: " + JSON.stringify(Result) );
 		}).catch(function( Error ) {
 			if ( Input.ExceptionTest ) {
 				Input.Comparator = { "Object": true };
 				Input.Result = Error;
 			} else {
-				log(JSON.stringify( Error ));
+				log("Error: " + JSON.stringify( Error ), Input.Debug);
 				reject({ "Message": "UnknownError" });
 			}
 		}).finally(function() {

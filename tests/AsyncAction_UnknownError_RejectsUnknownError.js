@@ -18,12 +18,14 @@ define([
 				return promise(function( resolve, reject ) {
 					reject({ "Message": "UnknownError"  });
 				});
-			}
+			},
+			"ExceptionTest": false,
+			"Debug": false
 		},
 		"Function": function( Input ) {
 			var xErrorRejected = {};
 			return promise(function( resolve ) {
-				AsyncAction( Input ).catch(function( Error ) { 
+				AsyncAction( Input ).catch(function( Error ) {
 					xErrorRejected = Error;
 				}).finally(function() {
 					resolve( xErrorRejected );
@@ -32,5 +34,6 @@ define([
 		},
 		"ExpectedOutput": { "Message": "UnknownError" },
 		"Comparator": { "Object": true },
+		"Debug": false
 	};
 });
